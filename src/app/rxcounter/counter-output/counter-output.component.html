@@ -1,3 +1,5 @@
 <div>
-    <h3>Counter is : {{counter}}</h3>
-</div>  
+    <h3>Counter is : {{
+        (counter$ | async)?.counter 
+        }}</h3>
+</div>
