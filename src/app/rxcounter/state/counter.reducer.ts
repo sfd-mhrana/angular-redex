@@ -16,8 +16,9 @@ const _counterReducer = createReducer(
             counter:state.counter-1,
         }
     }),
-    on(reset, () => {
+    on(reset, (state) => {
         return{
+            ...state,
             counter:0,
         }
     }),

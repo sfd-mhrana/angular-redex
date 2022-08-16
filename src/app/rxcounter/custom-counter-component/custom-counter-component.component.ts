@@ -10,10 +10,15 @@ import { CounterState } from '../state/counter.state';
 })
 export class CustomCounterComponentComponent implements OnInit {
   value:number;
+  name:string;
 
   constructor(private store:Store<{counter:CounterState}> ) { }
 
   ngOnInit(): void {
+    this.store.select('counter').subscribe(data=>{
+      console.warn("name chage")
+      this.name=data.name;
+    })
   }
 
   onAdd(){
