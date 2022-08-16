@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { customeIncrement } from '../state/counter.actions';
+import { getName } from '../state/counter.selectors';
 import { CounterState } from '../state/counter.state';
 
 @Component({
@@ -15,9 +16,9 @@ export class CustomCounterComponentComponent implements OnInit {
   constructor(private store:Store<{counter:CounterState}> ) { }
 
   ngOnInit(): void {
-    this.store.select('counter').subscribe(data=>{
+    this.store.select(getName).subscribe(data=>{
       console.warn("name chage")
-      this.name=data.name;
+      this.name=data;
     })
   }
 
