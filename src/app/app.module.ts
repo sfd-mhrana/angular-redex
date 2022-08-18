@@ -16,6 +16,10 @@ import { CounterComponent } from './rxcounter/counter/counter.component';
 import { CounterOutputComponent } from './rxcounter/counter-output/counter-output.component';
 import { ConterButtonsComponent } from './rxcounter/conter-buttons/conter-buttons.component';
 import { CustomCounterComponentComponent } from './rxcounter/custom-counter-component/custom-counter-component.component';
+import { HomeComponent } from './rxcounter/home/home.component';
+import { PostListComponent } from './posts/post-list/post-list.component';
+import { postsReducer } from './posts/state/post.reducer';
+import { appReducer } from './store/app.state';
 
 @NgModule({
   declarations: [
@@ -30,12 +34,16 @@ import { CustomCounterComponentComponent } from './rxcounter/custom-counter-comp
     ConterButtonsComponent,
     CustomCounterComponentComponent,
     
+    HomeComponent,
+         PostListComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({counter:counterReducer})
+    // StoreModule.forRoot({counter:counterReducer,posts:postsReducer})
+    StoreModule.forRoot(appReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]
